@@ -16,7 +16,7 @@ int main(void){
 
 double pi_aprox(int n){
     double sumatoria = 0.0;
-    std:: cout << "revisando" << sumatoria;
+    
     for(int k = 0; k<=n; k++){
         float kf = n;
 
