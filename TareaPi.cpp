@@ -6,7 +6,7 @@ double pi_aprox(int n);
 int main(void){
     std::cout.precision(16);
     std::cout.setf(std::ios::scientific);
-    for(int n = 1; n<=20; n++){
+    for(int n = 0; n<=20; n++){
         double pi_aprox2 = pi_aprox(n);
         double diferenciaRelativa = abs((1-pi_aprox2/M_PI));
         std::cout << n << " | " << pi_aprox2 << " | " << diferenciaRelativa << "\n";
@@ -15,9 +15,14 @@ int main(void){
 }
 
 double pi_aprox(int n){
-    double sumatoria = 0;
+    double sumatoria = 0.0;
+    std:: cout << "revisando" << sumatoria;
     for(int k = 0; k<=n; k++){
-        sumatoria += (1/pow(16,k)) * (4/((8*k)+1) - 2/((8*k)+4) - 1/((8*k)+5) - 1/((8*k)+6));
+        float kf = n;
+
+        sumatoria += (1/std::pow(16,kf))*(4.0/(8.0*kf+1.0)-2.0/(8.0*kf+4.0)) - (1.0/(8.0*kf+5)) - (1.0/(8.0*kf+6.0));
+        
+        // sumatoria += 1/std::pow(16,kf) * (4.0/(8.0*kf+1.0) - 2.0/(8.0*kf+4.0) - 1.0/(8.0*kf+5.0) - 1.0/(8.0*kf+6.0));
     }
     return sumatoria;
 }
